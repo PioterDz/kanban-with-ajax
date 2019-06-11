@@ -18,15 +18,17 @@ function Column(id, name) {
         data.append('bootcamp_kanban_column_id', self.id);
 
         fetch(prefix + baseUrl + '/card', { 
+            headers: myHeaders,
             method: 'POST',
             body: data,
             cache: 'no-store'
         })
         .then(function(resp){
             resp.json();
+            console.log(resp);
         })
-        .then(function(resp){
-            var card = new Card(resp.id, cardName);
+        .then(function() {
+            var card = new Card(self.id, cardName);
             self.addCard(card);
         });
       }

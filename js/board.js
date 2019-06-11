@@ -9,7 +9,7 @@ var board = {
 
 document.querySelector('#board .create-column').addEventListener('click', function() {
     var name = prompt('Enter a column name');
-    var data = new formData();
+    var data = new FormData();
     data.append('name', name);
     
     fetch(prefix + baseUrl + '/column', {
